@@ -2,6 +2,17 @@
 
 a small stopwatch for use in wlxoverlay-s
 
+this provides xsoverlay's functionality i wanted to have, which is its timer
+for how long a specific VR session has been running for rather than xr appplication
+specific session (e.g vrchat's session timer which won't work if vrchat crashes but
+my runtime doesn't lol).
+
+NOTE:
+
+vr_stopwatch does not use openxr to hook to the runtime to find out when it ended,
+right now the heuristic is "15 minutes without any calls to the binary" which should
+work for 99.99% of my cases.
+
 ![](./screenie.png)
 
 ## how
