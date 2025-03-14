@@ -36,7 +36,7 @@ pub fn main() !void {
         \\ PRAGMA busy_timeout = 5000;
     , .{}, .{});
 
-    db.execMulti(
+    try db.execMulti(
         \\ PRAGMA synchronous = NORMAL;
         \\ PRAGMA cache_size = 1000000000;
         \\ PRAGMA foreign_keys = true;
@@ -51,10 +51,7 @@ pub fn main() !void {
         \\   timestamp_start int,
         \\   timestamp_end int
         \\ ) STRICT;
-    , .{}) catch |err| switch (err) {
-        error.ExecReturnedData => {},
-        else => return err,
-    };
+    , .{});
 
     const stdout = std.io.getStdOut();
 
